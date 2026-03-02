@@ -173,5 +173,11 @@ Decision-based escalation
 
 Scalable system design
 
+## Project Demo
+
+A short walkthrough video demonstrating the system architecture, persona detection, knowledge retrieval, tone adaptation, and escalation logic can be viewed here:
+
+👉 Demo Video: https://youtu.be/JXhDvbTtQpg?si=ltBm1Rn928C9Ibhb
+
 ## Author
 Aryan Ajmani
