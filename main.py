@@ -1,3 +1,4 @@
+import streamlit as st
 from langchain_cohere.chat_models import ChatCohere
 from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
@@ -49,7 +50,6 @@ def retrieve_kb(query):
             return knowledge_base[key]
     return "We are reviewing your request and will assist you shortly."
 
-
 prompt = ChatPromptTemplate([
     ("system", """
 You are a Persona-Adaptive AI Customer Support Agent for a SaaS company.
@@ -83,25 +83,25 @@ Instructions:
     ("human", "{query}")
 ])
 
-
 chat_history = []
 
-while True:
-    human_query = input("You: ")
-    if human_query.lower() == "quit":
-        break
+st.title("Persona-Adaptive AI Support Agent")
+st.caption("Quick demo UI built with Streamlit")
 
-    result1 = structured_model1.invoke(human_query)
+user_input = st.chat_input("Ask your question...")
 
-    result2 = structured_model2.invoke(human_query)
+if user_input:
 
-    kb_answer = retrieve_kb(human_query)
+    result1 = structured_model1.invoke(user_input)
+    result2 = structured_model2.invoke(user_input)
+
+    kb_answer = retrieve_kb(user_input)
 
     escalation_flag = (
         result2.needs_human or
         result2.sentiment == "angry" or
-        "cancel" in human_query.lower() or
-        "complaint" in human_query.lower()
+        "cancel" in user_input.lower() or
+        "complaint" in user_input.lower()
     )
 
     final_query = ""
@@ -112,7 +112,7 @@ while True:
     final_query += f"Sentiment -> {result2.sentiment}\n"
     final_query += f"Needs Human -> {escalation_flag}\n"
     final_query += f"Retrieved Knowledge -> {kb_answer}\n\n"
-    final_query += human_query
+    final_query += user_input
 
     chat_history.append(HumanMessage(content=final_query))
 
@@ -123,4 +123,9 @@ while True:
     })
 
     chat_history.append(AIMessage(content=result))
-    print(f"AI: {result}")
+
+for msg in chat_history:
+    if isinstance(msg, HumanMessage):
+        st.chat_message("user").write(msg.content.split("\n")[-1])
+    else:
+        st.chat_message("assistant").write(msg.content)
