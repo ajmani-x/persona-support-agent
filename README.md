@@ -15,8 +15,8 @@ Escalating to a human agent when necessary
 
 The system demonstrates modular LLM orchestration, structured outputs, tone control, and escalation decision logic.
 
-## 🎯 Key Features
-1️⃣ Persona Detection
+##  Key Features
+1️ Persona Detection
 
 Classifies customers into one of the following categories:
 
@@ -30,7 +30,7 @@ Other
 
 This classification influences tone, structure, and response style.
 
-2️⃣ Structured Metadata Extraction
+2️ Structured Metadata Extraction
 
 The system extracts:
 
@@ -50,7 +50,7 @@ Escalation Requirement
 
 Structured outputs ensure reliability and production readiness.
 
-3️⃣ Knowledge Base Retrieval
+3️ Knowledge Base Retrieval
 
 A rule-based knowledge base retrieves relevant support information using keyword matching.
 
@@ -68,7 +68,7 @@ Login issues
 
 The architecture is modular and can be extended to embedding-based RAG for semantic retrieval.
 
-4️⃣ Persona-Based Tone Adaptation
+4️ Persona-Based Tone Adaptation
 
 Response style dynamically adapts:
 
@@ -80,7 +80,7 @@ Business Executive → Concise and outcome-focused
 
 Other → Professional and helpful
 
-5️⃣ Escalation Logic
+5️ Escalation Logic
 
 Escalation is triggered if:
 
@@ -92,7 +92,7 @@ High-risk keywords are detected (e.g., cancel, complaint)
 
 When escalation is triggered, the response clearly indicates human specialist handoff.
 
-## 🏗 System Architecture
+## System Architecture
 
 User Input
 ↓
@@ -106,7 +106,7 @@ Escalation Decision Logic
 ↓
 Persona-Adaptive Response Generation
 
-🛠 Tech Stack
+Tech Stack
 
 Python
 
@@ -116,7 +116,7 @@ Cohere LLM (command-a-03-2025)
 
 Pydantic (Structured Output Validation)
 
-🚀 How to Run
+How to Run
 
 Install dependencies
 
@@ -129,7 +129,7 @@ python main.py
 Type queries in the console.
 Type quit to exit.
 
-## 📈 Extensibility
+##  Extensibility
 
 This implementation is intentionally modular and can be extended to:
 
@@ -145,7 +145,7 @@ Logging & analytics integration
 
 CRM system handoff integration
 
-🧠 Design Philosophy
+ Design Philosophy
 
 The system prioritizes:
 
@@ -159,7 +159,7 @@ Business-aware escalation handling
 
 Production-ready decision layering
 
-## 🎯 Relevance to AI Product Systems
+##  Relevance to AI Product Systems
 
 This architecture aligns with real-world AI-driven automation platforms by demonstrating:
 
@@ -177,7 +177,7 @@ Scalable system design
 
 A short walkthrough video demonstrating the system architecture, persona detection, knowledge retrieval, tone adaptation, and escalation logic can be viewed here:
 
-👉 Demo Video: https://youtu.be/JXhDvbTtQpg?si=ltBm1Rn928C9Ibhb
+ Demo Video: https://youtu.be/JXhDvbTtQpg?si=ltBm1Rn928C9Ibhb
 
 ## Author
 Aryan Ajmani
